@@ -1,0 +1,36 @@
+import sys
+
+def suffix_array_to_suffix_tree(sa, lcp, text):
+    tree = {}
+    return tree
+
+if __name__ == '__main__':
+    text = sys.stdin.readline().strip()
+    sa = list(map(int, sys.stdin.readline().strip().split()))
+    lcp = list(map(int, sys.stdin.readline().strip().split()))
+    print(text)
+
+    tree = suffix_array_to_suffix_tree(sa, lcp, text)
+    
+        OutputEdges(tree, 0);
+    
+    for the following _recursive_ function OutputEdges:
+    
+    def OutputEdges(tree, node_id):
+        edges = tree[node_id]
+        for edge in edges:
+            print("%d %d" % (edge[1], edge[2]))
+            OutputEdges(tree, edge[0]);
+  
+    stack = [(0, 0)]
+    result_edges = []
+    while len(stack) > 0:
+      (node, edge_index) = stack[-1]
+      stack.pop()
+      if not node in tree:
+        continue
+      edges = tree[node]
+      if edge_index + 1 < len(edges):
+        stack.append((node, edge_index + 1))
+      print("%d %d" % (edges[edge_index][1], edges[edge_index][2]))
+      stack.append((edges[edge_index][0], 0))
