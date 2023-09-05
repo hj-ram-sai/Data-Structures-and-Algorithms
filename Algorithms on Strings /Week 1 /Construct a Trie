@@ -1,0 +1,12 @@
+import sys
+
+def build_trie(patterns):
+    tree = dict()
+    return tree
+
+if __name__ == '__main__':
+    patterns = sys.stdin.read().split()[1:]
+    tree = build_trie(patterns)
+    for node in tree:
+        for c in tree[node]:
+            print("{}->{}:{}".format(node, tree[node][c], c))
